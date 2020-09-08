@@ -1,0 +1,6 @@
+docker build . --build-arg DOMAIN=lrmds.deped.gov.ph --build-arg IPADDR=13.76.83.181 -t cdn
+
+docker run --rm -ti -p 80:80 -p 443:443 -v %cd%/cache:/opt/cache/cdn_data --name deped cdn
+docker run --rm -ti -p 80:80 -p 443:443 --name deped cdn
+
+docker rmi cdn
