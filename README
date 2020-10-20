@@ -3,4 +3,19 @@ docker build . --build-arg DOMAIN=lrmds.deped.gov.ph --build-arg IPADDR=13.76.83
 docker run --rm -ti -p 80:80 -p 443:443 -v %cd%/cache:/opt/cache/cdn_data --name deped cdn
 docker run --rm -ti -p 80:80 -p 443:443 --name deped cdn
 
+docker run --rm -ti -p 80:80 -p 443:443 --name svs cdn
+
 docker rmi cdn
+
+
+git clone https://github.com/cadeath/web-cdn.git --depth 1
+docker build . --build-arg DOMAIN=commons.deped.gov.ph --build-arg IPADDR=23.98.74.56 -t cdn
+docker run -ti -p 80:80 -p 443:443 --restart unless-stopped --name commons cdn
+
+
+docker build . --build-arg DOMAIN=mulatmedia.com --build-arg IPADDR=23.236.241.180 -t cdn
+docker run -ti -p 80:80 -p 443:443 --restart unless-stopped --name mulatmedia cdn
+
+
+--build-arg DOMAIN=[site domain]
+--build-arg DOMAIN=[site ip]

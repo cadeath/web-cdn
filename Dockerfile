@@ -1,7 +1,7 @@
 FROM nginx:alpine
 
 LABEL maintainer="Eskie Cirrus James Maquilang, C)PEH <ecjmaquic@gmail.com>"
-LABEL version="1.0"
+LABEL version="1.1"
 
 COPY . /cdn
 WORKDIR /cdn
